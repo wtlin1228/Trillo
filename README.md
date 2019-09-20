@@ -1,5 +1,13 @@
 # Trillo
 
+### DEV mode
+
+`$ npm start`
+
+### PRODUCTION mode
+
+`$ npm build:css`
+
 ### 如何使用 SVG
 
 1. 將所有的 SVG 用在同一個檔案，像是 `img/sprite.svg`，這樣子就只需要一次 request 就可以拿到所有的 icon
@@ -179,5 +187,29 @@
   mask-image: url(../img/chevron-thin-right.svg);
   -webkit-mask-size: cover;
   mask-size: cover;
+}
+```
+
+### 不同瀏覽器相容性問題
+
+可以用 `@supports` 來解決
+
+但是如果這樣寫的話，`background-image`也會影響到有 mask 的狀況，所以記得要把 `background-image: none;`
+
+```CSS
+/* Older browsers */
+background-image: url(../img/chevron-thin-right.svg);
+background-size: cover;
+
+/* Newer browsers - masks */
+@supports (-webkit-mask-image: url()) or (mask-image: url()) {
+  background-color: var(--color-primary);
+  -webkit-mask-image: url(../img/chevron-thin-right.svg);
+  mask-image: url(../img/chevron-thin-right.svg);
+  -webkit-mask-size: cover;
+  mask-size: cover;
+
+  /* 需要加上這個 */
+  background-image: none;
 }
 ```
