@@ -1,5 +1,7 @@
 # Trillo
 
+[Demo](https://wtlin1228.github.io/Trillo/)
+
 ### DEV mode
 
 `$ npm start`
