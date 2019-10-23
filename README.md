@@ -1,6 +1,6 @@
 # Trillo
 
-[Demo](https://wtlin1228.github.io/Trillo/)
+[Demo](https://wtlin1228.github.io/trillo/)
 
 ### DEV mode
 
